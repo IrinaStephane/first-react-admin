@@ -1,14 +1,4 @@
-import {
-  Edit,
-  SimpleForm,
-  TextInput,
-  NumberInput,
-  SelectInput,
-  BooleanInput,
-  required,
-  minValue,
-  useRecordContext,
-} from "react-admin";
+import { Edit, SimpleForm, TextInput, NumberInput, SelectInput, BooleanInput, required, minValue, useRecordContext } from "react-admin";
 
 const departmentChoices = [
   { id: "Informatique", name: "Informatique" },

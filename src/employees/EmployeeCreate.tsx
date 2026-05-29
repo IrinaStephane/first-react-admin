@@ -1,13 +1,4 @@
-import {
-  Create,
-  SimpleForm,
-  TextInput,
-  NumberInput,
-  SelectInput,
-  BooleanInput,
-  required,
-  minValue,
-} from "react-admin";
+import { Create, SimpleForm, TextInput, NumberInput, SelectInput, BooleanInput, required, minValue } from "react-admin";
 
 const departmentChoices = [
   { id: "Informatique", name: "Informatique" },
