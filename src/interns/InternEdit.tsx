@@ -1,4 +1,3 @@
-// src/interns/InternEdit.tsx
 import {
   Edit,
   SimpleForm,
@@ -22,17 +21,12 @@ const departmentChoices = [
   { id: "Finance", name: "Finance" },
 ];
 
-/**
- * Titre dynamique — useRecordContext récupère le stagiaire courant.
- * Retourne undefined avant le chargement → garde défensive.
- */
 const InternTitle = () => {
   const record = useRecordContext();
   if (!record) return <span>Modifier un stagiaire</span>;
   return <span>Modifier : {record.firstname} {record.lastname}</span>;
 };
 
-/** Même logique conditionnelle que InternCreate */
 const RemunerationInput = () => {
   const isRemunerate = useWatch({ name: "isRemunerate" });
   if (!isRemunerate) return null;

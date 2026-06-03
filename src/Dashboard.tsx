@@ -1,4 +1,3 @@
-// src/Dashboard.tsx
 import { useGetList } from "react-admin";
 import {
   Card,
@@ -13,9 +12,6 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import SchoolIcon from "@mui/icons-material/School";
 import EuroIcon from "@mui/icons-material/Euro";
 
-/**
- * Carte d'indicateur générique
- */
 const StatCard = ({
   title,
   value,

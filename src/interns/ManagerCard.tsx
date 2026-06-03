@@ -1,4 +1,3 @@
-// src/interns/ManagerCard.tsx
 import { useRecordContext, useGetOne } from "react-admin";
 import {
   Card,
@@ -12,17 +11,8 @@ import {
 } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
 
-/**
- * ManagerCard — Exercice 8.2
- *
- * 1. useRecordContext() → lit le stagiaire courant (fourni par <Show>)
- * 2. useGetOne()        → charge l'employé (manager) par son id
- *
- * L'option { enabled: !!record?.managerId } évite un appel API
- * avec id=undefined tant que le stagiaire n'est pas encore chargé.
- */
 export const ManagerCard = () => {
-  const record = useRecordContext(); // stagiaire courant
+  const record = useRecordContext();
 
   const {
     data: manager,
@@ -31,10 +21,9 @@ export const ManagerCard = () => {
   } = useGetOne(
     "employees",
     { id: record?.managerId },
-    { enabled: !!record?.managerId } // ← évite l'appel si id est undefined
+    { enabled: !!record?.managerId }
   );
 
-  // État 1 — chargement
   if (isPending) {
     return (
       <Box display="flex" alignItems="center" gap={1} p={2}>
@@ -44,7 +33,6 @@ export const ManagerCard = () => {
     );
   }
 
-  // État 2 — erreur
   if (error) {
     return (
       <Alert severity="error" sx={{ mt: 1 }}>
@@ -53,7 +41,6 @@ export const ManagerCard = () => {
     );
   }
 
-  // État 3 — données disponibles
   return (
     <Card variant="outlined" sx={{ mt: 2, maxWidth: 400 }}>
       <CardContent>

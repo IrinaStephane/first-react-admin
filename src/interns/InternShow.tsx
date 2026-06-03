@@ -1,4 +1,3 @@
-// src/interns/InternShow.tsx
 import {
   Show,
   SimpleShowLayout,
@@ -31,17 +30,12 @@ const ShowActions = () => (
 export const InternShow = () => (
   <Show title={<InternTitle />} actions={<ShowActions />}>
     <SimpleShowLayout>
-      {/* 8.1 — Informations du stagiaire */}
       <TextField source="id" label="ID" />
       <TextField source="firstname" label="Prénom" />
       <TextField source="lastname" label="Nom" />
       <EmailField source="email" label="Email" />
       <TextField source="department" label="Département" />
 
-      {/*
-        ReferenceField avec lien cliquable vers la fiche employé (/employees/:id/show)
-        Le prop "link" à "show" génère un lien vers la page Show de l'employé.
-      */}
       <ReferenceField
         source="managerId"
         reference="employees"
@@ -59,7 +53,6 @@ export const InternShow = () => (
       />
       <BooleanField source="isRemunerate" label="Rémunéré" />
 
-      {/* 8.2 — Composant ManagerCard (useGetOne) */}
       <Divider sx={{ my: 2 }} />
       <Typography variant="subtitle2" color="text.secondary">
         Détails du manager

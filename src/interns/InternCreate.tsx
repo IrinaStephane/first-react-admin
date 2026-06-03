@@ -1,4 +1,3 @@
-// src/interns/InternCreate.tsx
 import {
   Create,
   SimpleForm,
@@ -6,7 +5,6 @@ import {
   NumberInput,
   SelectInput,
   BooleanInput,
-  ReferenceInput,
   AutocompleteInput,
   required,
   email,
@@ -22,14 +20,7 @@ const departmentChoices = [
   { id: "Finance", name: "Finance" },
 ];
 
-/**
- * Champ remuneration conditionnel.
- * useWatch (react-hook-form) lit la valeur courante de isRemunerate
- * SANS provoquer de re-render du formulaire entier.
- * C'est le hook demandé pour la validation conditionnelle.
- */
 const RemunerationInput = () => {
-  // useWatch observe le champ isRemunerate en temps réel
   const isRemunerate = useWatch({ name: "isRemunerate" });
 
   if (!isRemunerate) return null;
@@ -46,14 +37,9 @@ const RemunerationInput = () => {
   );
 };
 
-/**
- * Filtre les managers actifs du même département que le stagiaire.
- * useWatch lit le département sélectionné pour filtrer les managers.
- */
 const ManagerInput = () => {
   const department = useWatch({ name: "department" });
 
-  // Récupère les employés actifs du même département
   const { data: managers = [] } = useGetList("employees", {
     filter: { active: true, ...(department ? { department } : {}) },
     pagination: { page: 1, perPage: 100 },
@@ -103,10 +89,9 @@ export const InternCreate = () => (
         choices={departmentChoices}
         validate={required("Le département est obligatoire")}
       />
-      {/* Manager filtré dynamiquement selon le département — useWatch */}
+
       <ManagerInput />
       <BooleanInput source="isRemunerate" label="Rémunéré" defaultValue={false} />
-      {/* Champ conditionnel — useWatch sur isRemunerate */}
       <RemunerationInput />
     </SimpleForm>
   </Create>

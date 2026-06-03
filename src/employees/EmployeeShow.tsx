@@ -10,7 +10,7 @@ import {
   EditButton,
   useRecordContext,
 } from "react-admin";
-import { Divider, Typography } from "@mui/material";
+import { Divider } from "@mui/material";
 import { InternsByManager } from "./InternsByManager";
 import { DepartmentStats } from "./DepartmentStats";
 
@@ -42,12 +42,10 @@ export const EmployeeShow = () => (
       />
       <BooleanField source="active" label="Actif" />
 
-      {/* Exercice 9.2 — Statistiques département */}
       <DepartmentStats />
 
       <Divider sx={{ my: 2 }} />
 
-      {/* Exercice 9.1 — Liste des stagiaires encadrés */}
       <InternsByManager />
     </SimpleShowLayout>
   </Show>
