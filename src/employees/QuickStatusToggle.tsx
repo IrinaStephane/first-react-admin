@@ -36,14 +36,31 @@ export const QuickStatusToggle = () => {
   return (
     <Button
       size="small"
-      variant="outlined"
-      color={record.active ? "error" : "success"}
-      startIcon={record.active ? <CancelIcon /> : <CheckCircleIcon />}
+      variant="contained"
       onClick={(e) => {
         e.stopPropagation();
         handleToggle();
       }}
       disabled={isPending}
+      startIcon={record.active ? <CancelIcon /> : <CheckCircleIcon />}
+      sx={{
+        background: record.active 
+          ? "linear-gradient(135deg, #ef4444 0%, #dc2626 100%)"
+          : "linear-gradient(135deg, #10b981 0%, #059669 100%)",
+        color: "#f8fafc",
+        fontWeight: 500,
+        transition: "all 0.3s ease",
+        "&:hover": {
+          background: record.active
+            ? "linear-gradient(135deg, #dc2626 0%, #b91c1c 100%)"
+            : "linear-gradient(135deg, #059669 0%, #047857 100%)",
+          transform: "translateY(-2px)",
+          boxShadow: "0 8px 16px rgba(59, 130, 246, 0.2)",
+        },
+        "&:disabled": {
+          opacity: 0.6,
+        }
+      }}
     >
       {record.active ? "Désactiver" : "Activer"}
     </Button>

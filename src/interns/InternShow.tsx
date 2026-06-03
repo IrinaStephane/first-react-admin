@@ -12,7 +12,7 @@ import {
   useRecordContext,
 } from "react-admin";
 import { ManagerCard } from "./ManagerCard";
-import { Divider, Typography } from "@mui/material";
+import { Divider, Typography, Card, CardContent } from "@mui/material";
 
 const InternTitle = () => {
   const record = useRecordContext();
@@ -28,35 +28,61 @@ const ShowActions = () => (
 );
 
 export const InternShow = () => (
-  <Show title={<InternTitle />} actions={<ShowActions />}>
-    <SimpleShowLayout>
-      <TextField source="id" label="ID" />
-      <TextField source="firstname" label="Prénom" />
-      <TextField source="lastname" label="Nom" />
-      <EmailField source="email" label="Email" />
-      <TextField source="department" label="Département" />
+  <Show 
+    title={<InternTitle />} 
+    actions={<ShowActions />}
+    sx={{
+      background: "linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%)",
+      minHeight: "100vh",
+    }}
+  >
+    <SimpleShowLayout sx={{ maxWidth: "800px" }}>
+      <Card sx={{ mb: 2, border: "1px solid #334155" }}>
+        <CardContent>
+          <Typography variant="h6" fontWeight="bold" mb={2} sx={{ color: "#f8fafc" }}>
+            Informations personnelles
+          </Typography>
+          <TextField source="id" label="ID" />
+          <TextField source="firstname" label="Prénom" />
+          <TextField source="lastname" label="Nom" />
+          <EmailField source="email" label="Email" />
+        </CardContent>
+      </Card>
 
-      <ReferenceField
-        source="managerId"
-        reference="employees"
-        label="Manager"
-        link="show"
-      >
-        <TextField source="firstname" />{" "}
-        <TextField source="lastname" />
-      </ReferenceField>
+      <Card sx={{ mb: 2, border: "1px solid #334155" }}>
+        <CardContent>
+          <Typography variant="h6" fontWeight="bold" mb={2} sx={{ color: "#f8fafc" }}>
+            Informations professionnelles
+          </Typography>
+          <TextField source="department" label="Département" />
+          <NumberField
+            source="remuneration"
+            label="Rémunération"
+            options={{ style: "currency", currency: "EUR" }}
+          />
+          <BooleanField source="isRemunerate" label="Rémunéré" />
+        </CardContent>
+      </Card>
 
-      <NumberField
-        source="remuneration"
-        label="Rémunération"
-        options={{ style: "currency", currency: "EUR" }}
-      />
-      <BooleanField source="isRemunerate" label="Rémunéré" />
+      <Card sx={{ mb: 2, border: "1px solid #334155" }}>
+        <CardContent>
+          <Typography variant="h6" fontWeight="bold" mb={2} sx={{ color: "#f8fafc" }}>
+            Manager
+          </Typography>
+          <ReferenceField
+            source="managerId"
+            reference="employees"
+            label="Responsable"
+            link="show"
+          >
+            <TextField source="firstname" />{" "}
+            <TextField source="lastname" />
+          </ReferenceField>
+        </CardContent>
+      </Card>
 
-      <Divider sx={{ my: 2 }} />
-      <Typography variant="subtitle2" color="text.secondary">
-        Détails du manager
-      </Typography>
+      <Divider sx={{ my: 3, borderColor: "#334155" }} />
+      
       <ManagerCard />
     </SimpleShowLayout>
   </Show>

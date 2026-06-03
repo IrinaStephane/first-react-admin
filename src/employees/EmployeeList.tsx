@@ -40,8 +40,26 @@ export const EmployeeList = () => (
     perPage={5}
     sort={{ field: "id", order: "ASC" }}
     title="Liste des employés"
+    sx={{
+      background: "linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%)",
+      minHeight: "100vh",
+      "& .RaList-main": {
+        backgroundColor: "transparent",
+      },
+    }}
   >
-    <Datagrid rowClick="show">
+    <Datagrid 
+      rowClick="show"
+      sx={{
+        backgroundColor: "#1a1f3a",
+        border: "1px solid #334155",
+        borderRadius: "8px",
+        overflow: "hidden",
+        "& .RaDatagrid-tableWrapper": {
+          backgroundColor: "#1a1f3a",
+        },
+      }}
+    >
       <TextField source="firstname" label="Prénom" />
       <TextField source="lastname" label="Nom" />
       <TextField source="email" label="Email" />

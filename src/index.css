@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  color: #f8fafc;
+  background-attachment: fixed;
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1f3a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3b82f6;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0ea5e9;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.MuiCard-root {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Table styling */
+.RaDatagrid-root {
+  background: transparent !important;
+}
+
+.RaDatagrid-headerCell {
+  background: #1a1f3a !important;
+  color: #f8fafc !important;
+  font-weight: 600 !important;
+  border-bottom: 2px solid #334155 !important;
+}
+
+.RaDatagrid-row {
+  background: transparent !important;
+  border-bottom: 1px solid #334155 !important;
+  transition: background 0.2s ease !important;
+}
+
+.RaDatagrid-row:hover {
+  background: rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Buttons */
+.RaButton-root {
+  transition: all 0.2s ease !important;
+}
+
+/* Form inputs */
+.MuiTextField-root .MuiOutlinedInput-root {
+  color: #f8fafc;
+}
+
+.MuiTextField-root .MuiOutlinedInput-notchedOutline {
+  border-color: #334155 !important;
+}
+
+.MuiTextField-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #3b82f6 !important;
+}
+
+.MuiTextField-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #3b82f6 !important;
+}
+
+/* Select inputs */
+.MuiSelect-root {
+  color: #f8fafc !important;
+}
+
+/* Shadows */
+.MuiCard-root,
+.MuiPaper-root {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Links */
+a {
+  color: #3b82f6;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #0ea5e9;
+}
+
+/* Dialog */
+.MuiDialog-paper {
+  background: #1a1f3a !important;
+  border: 1px solid #334155 !important;
+}
+
+/* Tooltips */
+.MuiTooltip-tooltip {
+  background: #1a1f3a !important;
+  color: #f8fafc !important;
+  border: 1px solid #334155 !important;
+}
+
+/* Alerts */
+.MuiAlert-root {
+  background-color: rgba(59, 130, 246, 0.1) !important;
+  color: #3b82f6 !important;
+  border-left: 4px solid #3b82f6 !important;
+}
+
+.MuiAlert-root.MuiAlert-severity-success {
+  background-color: rgba(16, 185, 129, 0.1) !important;
+  color: #10b981 !important;
+  border-left-color: #10b981 !important;
+}
+
+.MuiAlert-root.MuiAlert-severity-error {
+  background-color: rgba(239, 68, 68, 0.1) !important;
+  color: #ef4444 !important;
+  border-left-color: #ef4444 !important;
+}
+
+.MuiAlert-root.MuiAlert-severity-warning {
+  background-color: rgba(245, 158, 11, 0.1) !important;
+  color: #f59e0b !important;
+  border-left-color: #f59e0b !important;
+}

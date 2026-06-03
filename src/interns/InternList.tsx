@@ -82,21 +82,37 @@ const QuickCreateModal = ({ open, onClose }: { open: boolean; onClose: () => voi
   };
 
   return (
-    <Dialog open={open} onClose={onClose} maxWidth="xs" fullWidth>
-      <DialogTitle>Ajouter un stagiaire rapide</DialogTitle>
+    <Dialog 
+      open={open} 
+      onClose={onClose} 
+      maxWidth="xs" 
+      fullWidth
+      PaperProps={{
+        sx: {
+          backgroundColor: "#1a1f3a",
+          borderColor: "#334155",
+          border: "1px solid #334155",
+        }
+      }}
+    >
+      <DialogTitle sx={{ color: "#f8fafc", fontWeight: 600 }}>Ajouter un stagiaire rapide</DialogTitle>
       <DialogContent sx={{ display: "flex", flexDirection: "column", gap: 2, pt: 2 }}>
-        {error && <Alert severity="error">{error}</Alert>}
+        {error && <Alert severity="error" sx={{ backgroundColor: "rgba(239, 68, 68, 0.1)" }}>{error}</Alert>}
         <MuiTextField
           label="Prénom"
           value={form.firstname}
           onChange={(e) => setForm({ ...form, firstname: e.target.value })}
           size="small"
+          fullWidth
+          InputLabelProps={{ style: { color: "#cbd5e1" } }}
         />
         <MuiTextField
           label="Nom"
           value={form.lastname}
           onChange={(e) => setForm({ ...form, lastname: e.target.value })}
           size="small"
+          fullWidth
+          InputLabelProps={{ style: { color: "#cbd5e1" } }}
         />
         <MuiTextField
           label="ID Manager"
@@ -104,11 +120,23 @@ const QuickCreateModal = ({ open, onClose }: { open: boolean; onClose: () => voi
           value={form.managerId}
           onChange={(e) => setForm({ ...form, managerId: e.target.value })}
           size="small"
+          fullWidth
+          InputLabelProps={{ style: { color: "#cbd5e1" } }}
         />
       </DialogContent>
-      <DialogActions>
-        <Button onClick={onClose} disabled={isPending}>Annuler</Button>
-        <Button onClick={handleSubmit} variant="contained" disabled={isPending}>
+      <DialogActions sx={{ p: 2 }}>
+        <Button onClick={onClose} disabled={isPending} sx={{ color: "#cbd5e1" }}>Annuler</Button>
+        <Button 
+          onClick={handleSubmit} 
+          variant="contained" 
+          disabled={isPending}
+          sx={{ 
+            background: "linear-gradient(135deg, #3b82f6 0%, #0ea5e9 100%)",
+            "&:hover": {
+              background: "linear-gradient(135deg, #1e40af 0%, #0369a1 100%)"
+            }
+          }}
+        >
           {isPending ? "Création..." : "Créer"}
         </Button>
       </DialogActions>
@@ -142,8 +170,26 @@ export const InternList = () => {
         actions={<ListActions onQuickCreate={() => setModalOpen(true)} />}
         perPage={5}
         title="Liste des stagiaires"
+        sx={{
+          background: "linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%)",
+          minHeight: "100vh",
+          "& .RaList-main": {
+            backgroundColor: "transparent",
+          },
+        }}
       >
-        <Datagrid rowClick="show">
+        <Datagrid 
+          rowClick="show"
+          sx={{
+            backgroundColor: "#1a1f3a",
+            border: "1px solid #334155",
+            borderRadius: "8px",
+            overflow: "hidden",
+            "& .RaDatagrid-tableWrapper": {
+              backgroundColor: "#1a1f3a",
+            },
+          }}
+        >
           <TextField source="firstname" label="Prénom" />
           <TextField source="lastname" label="Nom" />
           <TextField source="email" label="Email" />
