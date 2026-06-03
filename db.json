@@ -45,5 +45,57 @@
       "salary": 3400,
       "active": true
     }
+  ],
+  "interns": [
+    {
+      "id": 1,
+      "firstname": "Léa",
+      "lastname": "Petit",
+      "email": "lea.petit@company.com",
+      "department": "Informatique",
+      "managerId": 1,
+      "remuneration": 700,
+      "isRemunerate": true
+    },
+    {
+      "id": 2,
+      "firstname": "Tom",
+      "lastname": "Girard",
+      "email": "tom.girard@company.com",
+      "department": "Marketing",
+      "managerId": 2,
+      "remuneration": 0,
+      "isRemunerate": false
+    },
+    {
+      "id": 3,
+      "firstname": "Julie",
+      "lastname": "Moreau",
+      "email": "julie.moreau@company.com",
+      "department": "Informatique",
+      "managerId": 5,
+      "remuneration": 600,
+      "isRemunerate": true
+    },
+    {
+      "id": 4,
+      "firstname": "Kevin",
+      "lastname": "Blanc",
+      "email": "kevin.blanc@company.com",
+      "department": "Finance",
+      "managerId": 4,
+      "remuneration": 0,
+      "isRemunerate": false
+    },
+    {
+      "id": 5,
+      "firstname": "Sara",
+      "lastname": "Roux",
+      "email": "sara.roux@company.com",
+      "department": "Informatique",
+      "managerId": 1,
+      "remuneration": 650,
+      "isRemunerate": true
+    }
   ]
 }
