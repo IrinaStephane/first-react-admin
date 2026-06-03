@@ -1,4 +1,4 @@
-import { Create, SimpleForm, TextInput, NumberInput, SelectInput, BooleanInput, required, minValue } from "react-admin";
+import { Create, SimpleForm, TextInput, NumberInput, SelectInput, BooleanInput, required, minValue, email } from "react-admin";
 
 const departmentChoices = [
   { id: "Informatique", name: "Informatique" },
@@ -24,7 +24,10 @@ export const EmployeeCreate = () => (
         source="email"
         label="Email"
         type="email"
-        validate={required("L'email est obligatoire")}
+        validate={[
+          required("L'email est obligatoire"),
+          email("L'adresse email n'est pas valide")
+        ]}
       />
       <SelectInput
         source="department"
