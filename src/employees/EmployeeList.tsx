@@ -12,6 +12,7 @@ import {
   CreateButton,
   TopToolbar,
 } from "react-admin";
+import { QuickStatusToggle } from "./QuickStatusToggle";
 
 const departmentChoices = [
   { id: "Informatique", name: "Informatique" },
@@ -22,11 +23,7 @@ const departmentChoices = [
 
 const employeeFilters = [
   <SearchInput source="q" alwaysOn />,
-  <SelectInput
-    source="department"
-    label="Département"
-    choices={departmentChoices}
-  />,
+  <SelectInput source="department" label="Département" choices={departmentChoices} />,
 ];
 
 const ListActions = () => (
@@ -55,6 +52,7 @@ export const EmployeeList = () => (
         options={{ style: "currency", currency: "EUR" }}
       />
       <BooleanField source="active" label="Actif" />
+      <QuickStatusToggle />
       <EditButton />
       <DeleteButton />
     </Datagrid>
